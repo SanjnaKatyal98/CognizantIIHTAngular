@@ -1,0 +1,17 @@
+img{
+    height: 150px;
+    width: 150px;
+}
+.container{
+    padding: 5px;
+    margin: auto;
+    margin-top: 15px;
+    text-align: center;
+}
+button{
+    margin: 15px;
+    padding: 5px;
+    text-align: center;
+    width: 10%;
+    height: 5%;
+}

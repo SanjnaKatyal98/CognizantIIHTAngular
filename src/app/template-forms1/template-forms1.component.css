@@ -1,0 +1,10 @@
+.container{
+    background-color: pink;
+    margin: auto;
+    margin-top: 15px;
+    padding: 5px;
+    text-align: center;
+}
+.error{
+    color: red;
+}

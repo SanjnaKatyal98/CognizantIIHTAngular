@@ -1,0 +1,26 @@
+<button class="btn btn-success" (click)="start()">click</button>
+<div class="container">
+    <table class="table table-dark">
+        <thead>
+        <tr>
+            <th scope="col">Sno</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Image</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let p of product;let i=index">
+            <td>{{i+1}}</td>
+            <td (click)="prodSelected(p)">{{p.name}}</td>
+            <td>{{p.price}}</td>
+            <td><img src="{{p.image}}" alt="no image"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="card-footer">
+    <div class="row">
+        <button class="btn btn-primary" (click)="newProd()">add product</button>
+    </div>
+</div>

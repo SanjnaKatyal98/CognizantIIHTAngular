@@ -1,0 +1,50 @@
+<div class="container">
+    <form #tForm="ngForm" name="tForm" class="tForm" id="tForm" (ngSubmit)="onSubmit(tForm)">
+        Enter ID: <input type="text" name="id" id="id" #id="ngModel" ngModel required><br>
+        <div *ngIf="!id?.valid && (id?.dirty || id?.touched)" class="error">
+            <div *ngIf="id.errors?.['required']">
+                ID is required
+            </div>
+        </div><br>
+        Enter Name: <input #fullName="ngModel" type="text" name="fullName" required ngModel id="fullName" minlength="5"><br>
+        <div *ngIf="!fullName?.valid && (fullName?.dirty || fullName?.touched)" class="error">
+            <div *ngIf="fullName.errors?.['required']">
+                Name is required
+            </div>
+            <div *ngIf="fullName.errors?.['minlength']">
+                Name minimum number of chars required is 5
+            </div>
+        </div><br>
+        Select Gender: <input type="radio" id="sex" name="male" #male="ngModel" ngModel>Male
+                       <input type="radio" id="sex" name="female" #female="ngModel" ngModel>Female
+                       <input type="radio" id="sex" name="other" #other="ngModel" ngModel>Other
+                       <br><br>
+        Select Country: <select (click)="changeCountry()" class="country" name="country" id="country" #country="ngModel" required ngModel>
+                            <option [ngValue]="c.name" *ngFor="let c of countries">{{c.name}}</option>
+                        </select><br><br>
+        Enter Passport: <input type="text" #passport="ngModel" ngModel required id="passport" minlength="8" maxlength="8"><br>
+        <div *ngIf="!passport?.valid && (passport?.dirty || passport?.touched)" class="error">
+            <div *ngIf="passport.errors?.['required']">
+                Passport is required
+            </div>
+            <div *ngIf="passport.errors?.['minlength']">
+                Passport minimum number of chars required is 8
+            </div>
+        </div><br>
+        Enter Issuance Date: <input type="date" name="issuanceDate" id="issuanceDate" #issuanceDate="ngModel" ngModel required><br>
+        <div id="id" *ngIf="!issuanceDate?.valid && (issuanceDate?.dirty || issuanceDate?.touched)">
+            <div *ngIf="issuanceDate.errors?.['required']">
+                Date of issuance is required
+            </div>
+        </div><br>
+        Enter No. of Dependants: <input type="number" name="noOfDependents" id="noOfDependents" #noOfDependents="ngModel" required ngModel><br>
+        <div id="id" *ngIf="!noOfDependents?.valid && (noOfDependents?.dirty || noOfDependents?.touched)">
+            <div *ngIf="noOfDependents.errors?.['required']">
+                Dependecies is required
+            </div>
+        </div><br>
+        <button class="btn btn-success" type="submit">Submit</button>
+        <button class="btn btn-primary" type="button" (click)="reset(tForm)">Reset</button>
+    </form>
+</div><br>
+{{tForm.valid}}

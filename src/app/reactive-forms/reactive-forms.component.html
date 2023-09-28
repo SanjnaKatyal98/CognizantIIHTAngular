@@ -1,0 +1,79 @@
+<div id="main" class="form-group">
+    <form [formGroup]="studForm" (ngSubmit)="onSubmit()">
+        Enter ID: <input class="form-control" type="text" name="id" id="id" formControlName="id" required><br>
+        <div *ngIf="id">
+            <div *ngIf="!id.valid && (id.dirty||id.touched)">
+                <div [hidden]="!id.errors?.['required']"> ID is required</div>
+            </div>
+        </div><br>
+        Enter Name: <input class="form-control" type="text" formControlName="fullName" name="fullName" id="fullName" required minlength="3"><br>
+        <div *ngIf="fullName">
+            <div *ngIf="!fullName.valid && (fullName.dirty||fullName.touched)">
+                <div [hidden]="!fullName.errors?.['required']"> Name is required</div>
+            </div>
+            <div *ngIf="fullName.errors?.['minlength']"> Name minimum number of chars required is 3</div>
+        </div><br>
+        Enter Email: <input class="form-control" type="email" name="mail" id="mail" formControlName="mail" required><br>
+        <div *ngIf="mail">
+            <div *ngIf="!mail.valid && (mail.dirty||mail.touched)">
+                <div [hidden]="!mail.errors?.['required']"> Email is required</div>
+            </div>
+        </div><br>
+        Select Gender: <input type="radio" id="sex" name="sex" value="male" formControlName="sex">Male
+                       <input type="radio" id="sex" name="sex" value="female" formControlName="sex">Female
+                       <input type="radio" id="sex" name="sex" value="other" formControlName="sex">Other
+                       <br>
+        <div *ngIf="sex">
+            <div *ngIf="!sex.valid && (sex.dirty||sex.touched)">
+                <div [hidden]="!sex.errors?.['required']"> Gender is required</div>
+            </div>
+        </div><br>
+        <div formGroupName="addr">Enter Address: 
+            <input class="form-control" type="text" formControlName="city" id="city" name="city" required><br>
+            <input class="form-control" type="text" formControlName="state" id="state" name="state" required><br>
+            <input class="form-control" type="text" formControlName="country" id="country" name="country" required><br>
+            <div *ngIf="city">
+                <div *ngIf="!city.valid && (city.dirty||city.touched)">
+                    <div [hidden]="!city.errors?.['required']"> city field in address is required</div>
+                </div>
+            </div><br>
+            <div *ngIf="state">
+                <div *ngIf="!state.valid && (state.dirty||state.touched)">
+                    <div [hidden]="!state.errors?.['required']"> state field in address is required</div>
+                </div>
+            </div><br>
+            <div *ngIf="country">
+                <div *ngIf="!country.valid && (country.dirty||country.touched)">
+                    <div [hidden]="!country.errors?.['required']"> country field in address is required</div>
+                </div>
+            </div>
+        </div>
+        <div formArrayName="progs">
+            <form [formGroup]="studForm" (ngSubmit)="onSubmit()">
+                <div formArrayName="progs">    
+                    <div *ngFor="let p of progs().controls;let pIndex=index">
+                        <div [formGroupName]="pIndex">
+                            {{pIndex}}
+                            <input placeholder="Enter program name" class="form-control"
+                                type="text" name="progsName" id="progsName" formControlName="progsName">
+                            <button class="btn btn-danger" (click)="removeProgs(pIndex)">Remove Program</button>
+                            <div formArrayName="duration">
+                                <div *ngFor="let d of duration(pIndex).controls;let dIndex=index;">
+                                    <div [formGroupName]="dIndex">
+                                        {{dIndex}}duration:
+                                        <input class='form-control' type="text" name="time" id="time" placeholder="time" formControlName="time"/>
+                                        <input class='form-control' type="text" name="place" id="place" placeholder="place" formControlName="place"/>
+                                        <button (click)="removeDuration(pIndex,dIndex)">Remove duration</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" (click)="addDuration(pIndex)">Add duration</button>
+                        </div>
+                    </div>
+                    <button type="button" (click)="addProgs()">Add program</button>
+                </div><br>
+        <button class="btn btn-primary" type="submit" [disabled]="!studForm.valid">Submit</button>
+    </form>
+</div><br>
+{{studForm.valid}}
+{{studForm.value|json}}

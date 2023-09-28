@@ -1,0 +1,41 @@
+<div id="main" class="form-group">
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+        <label for="id"> Enter ID: </label>
+        <input class="form-control" type="text" name="id" id="id" formControlName="id" required><br>
+        <div *ngIf="id">
+            <div *ngIf="!id.valid && (id.dirty||id.touched)">
+                <div [hidden]="!id.errors?.['required']"> ID is required</div>
+            </div>
+        </div><br>
+        <label for="name"> Enter Title: </label>
+        <input class="form-control" type="text" formControlName="fullName" name="fullName" id="fullName" required minlength="3"><br>
+        <div *ngIf="fullName">
+            <div *ngIf="!fullName.valid && (fullName.dirty||fullName.touched)">
+                <div [hidden]="!fullName.errors?.['required']"> Title is required</div>
+            </div>
+            <div *ngIf="fullName.errors?.['minlength']"> Title minimum number of chars required is 3</div>
+        </div><br>
+        <label for="auth">Enter Author Name: </label>
+        <input class="form-control" type="text" name="auth" id="auth" formControlName="auth" required><br>
+        <div *ngIf="auth">
+            <div *ngIf="!auth.valid && (auth.dirty||auth.touched)">
+                <div [hidden]="!auth.errors?.['required']"> Author Name is required</div>
+            </div>
+        </div><br>
+        <label for="mail"> Enter Email: </label>
+        <input class="form-control" type="email" name="mail" id="mail" formControlName="mail" required><br>
+        <div *ngIf="mail">
+            <div *ngIf="!mail.valid && (mail.dirty||mail.touched)">
+                <div [hidden]="!mail.errors?.['required']"> Author Email is required</div>
+            </div>
+        </div><br>
+        <label for="dateOf"> Date: </label>
+        <input class="form-control" type="date" name="dateOf" id="dateOf" formControlName="dateOf">
+        <div *ngIf="dateOf">
+            <div *ngIf="!dateOf.valid && ( dateOf.dirty || dateOf.touched)" class="error">
+                <div *ngIf="dateOf.errors?.['required']"> Date is Required</div>
+            </div>
+        </div><br>
+        <button class="btn btn-primary" type="submit" [disabled]="!bookForm.valid">Submit</button>
+    </form>
+</div><br>

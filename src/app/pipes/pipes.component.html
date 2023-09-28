@@ -1,0 +1,41 @@
+<h1>{{name | uppercase}}</h1>
+<h3>{{name1 | lowercase}}</h3>
+<div class="info">
+    {{d}}<br>
+    {{d|date:'short'}}<br><br>
+    {{pi}}<br>
+    {{pi|number:'2.2-2'}}<br><br>
+    {{d1}}<br>
+    {{d1|date:'dd/MM/YY'}}<br><br>
+    {{fullname}}<br>
+    {{fullname | transformData:' '}}<br>
+    {{fullname | repeatData:3}}<br>
+</div>
+<div id="container">
+    <input style="border: 3px solid pink; width: 5%;" type="text" [(ngModel)]="n">
+    <div [ngSwitch]="n">
+        <div *ngSwitchCase="1">hello</div>
+        <div *ngSwitchCase="2">welcome</div>
+        <div *ngSwitchCase="3">temp</div>
+        <div *ngSwitchDefault style="color: red;">error!</div>
+    </div>
+    <!--same with ngtemplate-->
+    <ng-container [ngSwitch]='n'>
+        <ng-container *ngSwitchCase="1">
+            <ng-container *ngTemplateOutlet="template1n2"></ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="2">
+            <ng-container *ngTemplateOutlet="template1n2"></ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="3">
+            <ng-container *ngTemplateOutlet="template3n4"></ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="4">
+            <ng-container *ngTemplateOutlet="template3n4"></ng-container>
+        </ng-container>
+        <ng-container *ngSwitchDefault>default block</ng-container>
+        <ng-template #template1n2>value is 1 and 2 only lol</ng-template>
+        <ng-template #template3n4>value is 3 and 4 only lol</ng-template>
+    </ng-container>
+</div>
+<h4>{{fullname|slice:-1:-5}}</h4>

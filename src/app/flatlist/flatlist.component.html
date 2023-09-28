@@ -1,0 +1,22 @@
+<table class="table table-light">
+  <thead>
+    <tr>
+      <th scope="col">Sno</th>
+      <th scope="col">Acre</th>
+      <th scope="col">Room</th>
+      <th scope="col">Rent</th>
+      <th scope="col">Balcony</th>
+      <th scope="col">Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let f of flats;let i=index">
+      <td>{{i+1}}</td>
+      <td>{{f.acre}}</td>
+      <td>{{f.room}}</td>
+      <td>{{f.rent}}</td>
+      <td>{{f.balcony}}</td>
+      <td><img src="{{f.imageUrl}}"/></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,41 @@
+<div class="card" style="width: 80%; margin: auto;">
+
+    <div class="card-header">
+        <h2>Cart List</h2>
+        <h4>{{title}}</h4>
+    </div>
+    
+    <div class="card-body">
+
+    <div class="table-responsive">  
+        <table  *ngIf="cartList.length" class="table ">
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Rating</th>
+                <th>Quantity</th>
+            </tr>
+
+            <tr *ngFor="let p of cartList ;let i = index">
+                <td>{{i+1}}</td>
+                <td>{{p.name}}</td>
+                <td>{{p.category}}</td>
+                <td>{{p.price}}</td>
+                <!-- <td>{{p.rating}}</td> -->
+                <td>
+                    <app-star 
+                        [rating]="p.rating"
+                        (ratingEventClicked) = "ratingClick($event)">
+                    </app-star>
+                    <!-- ratingClick is a function cart-list.comp.ts which is displayng result after stars clicked -->
+                </td>
+                <td>{{p.quantity}}</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+</div>

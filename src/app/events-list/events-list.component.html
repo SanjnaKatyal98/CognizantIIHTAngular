@@ -1,0 +1,22 @@
+<div class="card-group">
+    <div class="card text-center" *ngFor="let e of events" style="background-color: pink; border-radius: 25px; margin:20px">
+        <h5 class="card-title">{{e?.name}}</h5>
+        <p class="card-text">{{e?.date}}</p>
+        <p class="card-text">{{e?.time}}</p>
+        <p class="card-text">Ticket Price: {{e?.price}}</p>
+        <h5 class="card-title">Sessions</h5>
+        <!--<div class="card-text" *ngFor="let sess of e?.sessions, let i=index">
+            <h5>Session {{i+1}}</h5>
+            <p>Session Name: {{sess.name}}</p>
+            <p>Session Duration: {{sess.duration}}</p>
+            <p>Level: {{sess.level}}</p>
+        </div>
+        <div class="card-text" *ngFor="let add of e?.location, let i=index">
+            <h5>{{i+1}}</h5>
+            <p>address: {{add.address}}</p>
+            <p>city: {{add.city}}</p>
+            <p>country: {{add.country}}</p>
+        </div>-->
+        <div id="data">{{e|json}}</div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<input type="text" [(ngModel)]="animAge" class="filterA" id="filterA" name="filterA" placeholder="enter filter key"><br>
+<h3>filter as per age {{num}}</h3><br>
+<table *ngIf="animals.length" class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Sno</th>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Age</th>
+        <th scope="col"><button class="btn btn-primary" (click)="disp()">{{dispImg ? 'hide' : 'show'}} Image</button></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of filteredList;let i=index">
+        <td>{{i+1}}</td>
+        <td>{{a.name}}</td>
+        <td>{{a.desc}}</td>
+        <td>{{a.age}}</td>
+        <td><img *ngIf="dispImg"
+          [src]="a.imageUrl" alt="no image"
+          [title]="a.name"
+          [style.margin.px]="imgM"
+          [style.height.px]="imgH"
+          [style.width.px]="imgW" /></td>
+      </tr>
+    </tbody>
+  </table>

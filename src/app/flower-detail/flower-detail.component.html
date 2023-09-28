@@ -1,0 +1,10 @@
+<div class="card">
+    <div class="card-header">
+        Flower Details
+    </div>
+    <div class="card-content">
+        Description: {{flower?.desc}}<br><br>
+        Image:<br> <img [src]="flower?.image" alt="picture of flower" style="height: 300px; width: 300px;">
+    </div><br>
+    <p><a (click)="back()" class="btn btn-default">back</a></p>
+</div>

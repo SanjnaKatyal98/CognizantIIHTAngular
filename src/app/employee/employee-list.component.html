@@ -1,0 +1,17 @@
+<div class="table-responsive">
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let emp of emps;let i=index;">
+                <td>{{emp.id}}</td>
+                <td><a [routerLink]="['detail',emp.id]">{{emp.name}}</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<router-outlet></router-outlet>

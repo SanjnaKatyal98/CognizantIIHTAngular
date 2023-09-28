@@ -1,0 +1,26 @@
+h1{
+    background-color: aquamarine;
+    text-align: center;
+    color: cornsilk;
+    margin: 5px;
+    padding: 5px;
+}
+h3{
+    background-color: violet;
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+    color: whitesmoke;
+}
+.info{
+    background-color: skyblue;
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+}
+#container{
+    background-color: turquoise;
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+}

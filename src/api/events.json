@@ -1,0 +1,65 @@
+[
+    {
+        "id":1,
+        "name":"enva",
+        "date": "23/12/2022",
+        "time":"08:30 am",
+        "price":102,
+        "imageUrl":"../assets/images/dog1.jpg",
+        "location":{
+            "address":"123",
+            "city":"Delhi",
+            "country":"India"
+        },
+        "sessions":[
+            {
+                "id":10,
+                "name":"AI",
+                "presentor":"Manvi",
+                "duration":"",
+                "level":10,
+                "voters":["leo", "snoppy", "tufffy"]
+            },
+            {
+                "id":11,
+                "name":"",
+                "presentor":"Ivnam",
+                "duration":"",
+                "level":11,
+                "voters":["leo", "snoppy", "tufffy"]
+            }
+        ]
+    },
+
+    {
+        "id":2,
+        "name":"Anugoonj",
+        "date": "23/12/2022",
+        "time":"08:30 am",
+        "price":102,
+        "imageUrl":"../assets/images/dog1.jpg",
+        "location":{
+            "address":"123",
+            "city":"Delhi",
+            "country":"India"
+        },
+        "sessions":[
+            {
+                "id":20,
+                "name":"AI",
+                "presentor":"Manvi",
+                "duration":"",
+                "level":10,
+                "voters":["leo", "snoppy", "tufffy"]
+            },
+            {
+                "id":21,
+                "name":"",
+                "presentor":"Ivnam",
+                "duration":"",
+                "level":11,
+                "voters":["leo", "snoppy", "tufffy"]
+            }
+        ]
+    }
+]
